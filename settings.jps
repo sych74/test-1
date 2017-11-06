@@ -1,0 +1,46 @@
+{
+        "main": {
+            "fields": [{
+                "caption": "DB User",
+                "name": "db_user",
+                "type": "string",
+                "default": "",
+                "required": true
+            }, {
+                "caption": "DB Password",
+                "name": "db_password",
+                "type": "string",
+                "inputType": "password",
+                "default": "",
+                "required": true
+            }, {
+                "name": "cron",
+                "caption": "Backup schedule",
+                "type": "list",
+                "editable": true,
+                "values": {
+                    "0 6 1/1 * *": "0 6 1/1 * * #Daily at 6:00 am",
+                    "*/30 * * * *": "*/30 * * * * #Every 30 minutes",
+                    "0 */1 * * *": "0 */1 * * * #Hourly",
+                    "0 */4 * * *": "0 */4 * * * #Every 4 hours",
+                    "0 */6 * * *": "0 */6 * * * #Every 6 hours",
+                    "0 */12 * * *": "0 */12 * * * #Every 12 hours",
+                    "0 6 1/7 * *": "0 6 1/7 * * #Each Sunday at 6:00 am"
+                },
+                "default": "0 */12 * * *"
+            }, {
+                "type": "spinner",
+                "name": "backup_count",
+                "caption": "N of stored backups",
+                "min": 1,
+                "max": 100,
+                "default": 5
+            }, {
+                "name": "backup-mode",
+                "caption": "Backup location",
+                "type": "string",
+                "inputType": "hidden",
+                "default": "nfs"
+            }]
+        }
+    }
