@@ -1,0 +1,13 @@
+type: update
+name: nodeGroupTest
+
+settings:
+  fields:
+  - name: nodeGroup
+    caption: Node Group
+    type: string
+    default: HelloWorld
+    required: 'true'
+    
+onInstall:
+  log: ${settings.nodeGroup} is an initialized
