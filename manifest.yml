@@ -7,7 +7,12 @@ settings:
     caption: Node Group
     type: string
     default: HelloWorld
-    required: 'true'
+    
+  - name: nodeGroup2
+    caption: Node Group
+    type: string
+    default: HelloWorld2
+    
     
 onInstall:
-  log: ${settings.nodeGroup} is an initialized
+  log: ${settings.nodeGroup} and ${settings.nodeGroup2} 
