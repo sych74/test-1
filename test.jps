@@ -1,0 +1,12 @@
+{
+    "type": "update",
+    "version": "1.5",
+    "id": "test2",
+    "name": "Test 2",
+    "globals": {
+        "nodeGroup": "${settings.nodeGroup}"
+    },
+    "onInstall": {
+        "log": "globals ${settings.nodeGroup} + ${nodes.${settings.nodeGroup}.first.id}"
+    }
+}
