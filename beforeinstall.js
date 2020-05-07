@@ -14,7 +14,7 @@ resp.nodes.push({
   flexibleCloudlets: ${settings.db_flexibleCloudlets:16},
   fixedCloudlets: ${settings.db_fixedCloudlets:1},
   diskLimit: ${settings.db_diskLimit:10},
-  count: db_count
+  count: db_count,
   nodeGroup: "sqldb",
   restartDelay: 5,
   skipNodeEmails: true,
