@@ -22,8 +22,8 @@ resp.nodes.push({
   cluster: true,
   env: {
     SCHEME: db_cluster,
-    DB_USER: "test",
-    DB_PASS: "asdasdasd",
+    DB_USER: "${globals.DB_USER}",
+    DB_PASS: "${globals.DB_PASS}",
     IS_PROXYSQL: false
   }
 });
