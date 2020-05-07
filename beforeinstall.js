@@ -1,5 +1,4 @@
 var db_cluster = '${settings.galera}' == 'true' ? "galera" : "master";
-var db_cluster_name = '${settings.galera}' == 'true' ? "Galera cluster" : "DB Server";
 var db_count = '${settings.galera}' == 'true' ? 3 : 2;
 
 var resp = {
@@ -18,13 +17,11 @@ resp.nodes.push({
   nodeGroup: "sqldb",
   restartDelay: 5,
   skipNodeEmails: true,
-  displayName: db_cluster_name,
-  cluster: true,
-  env: {
-    SCHEME: db_cluster,
-    DB_USER: "${globals.DB_USER}",
-    DB_PASS: "${globals.DB_PASS}",
-    IS_PROXYSQL: false
+  cluster: {
+    scheme: db_cluster,
+    db_user: "${globals.DB_USER}",
+    db_pass: "${globals.DB_PASS}",
+    is_proxysql: false
   }
 });
 
