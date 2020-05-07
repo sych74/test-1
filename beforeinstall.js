@@ -1,5 +1,6 @@
 var db_cluster = '${settings.galera}' == 'true' ? "galera" : "master";
 var db_cluster_name = '${settings.galera}' == 'true' ? "Galera cluster" : "DB Server";
+var db_count = '${settings.galera}' == 'true' ? 3 : 2;
 
 var resp = {
   result: 0,
@@ -13,13 +14,17 @@ resp.nodes.push({
   flexibleCloudlets: ${settings.db_flexibleCloudlets:16},
   fixedCloudlets: ${settings.db_fixedCloudlets:1},
   diskLimit: ${settings.db_diskLimit:10},
+  count: db_count
   nodeGroup: "sqldb",
   restartDelay: 5,
   skipNodeEmails: true,
   displayName: db_cluster_name,
-  cluster: {
-    scheme: db_cluster,
-    is_proxysql: false
+  cluster: true,
+  env: {
+    SCHEME: db_cluster,
+    DB_USER: ${globals.DB_USER},
+    DB_PASS: ${globals.DB_PASS},
+    IS_PROXYSQL: false
   }
 });
 
