@@ -14,15 +14,8 @@ resp.nodes.push({
   fixedCloudlets: ${settings.db_fixedCloudlets:1},
   diskLimit: ${settings.db_diskLimit:10},
   nodeGroup: "sqldb",
-  displayName: db_cluster_name,
   restartDelay: 5,
-  skipNodeEmails: true,
-  cluster: {
-    scheme: db_cluster,
-    db_user: ${globals.DB_USER},
-    db_pass: ${globals.DB_PASS},
-    is_proxysql: false
-  }  
+  skipNodeEmails: true
 })
 
 return resp;
