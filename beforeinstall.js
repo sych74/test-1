@@ -16,6 +16,6 @@ resp.nodes.push({
   nodeGroup: "sqldb",
   restartDelay: 5,
   skipNodeEmails: true
-})
+});
 
 return resp;
